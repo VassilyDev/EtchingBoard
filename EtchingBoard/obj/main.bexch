@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\afeli\Desktop\Concorsi\AdaCore\EtchingBoard\etchingboard.gpr
+20191208102032
+C:\Users\afeli\Desktop\Concorsi\AdaCore\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr
+20191112165714
+[BOUND OBJECT FILES]
+C:\Users\afeli\Desktop\Concorsi\AdaCore\EtchingBoard\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\afeli\Desktop\Concorsi\AdaCore\EtchingBoard\obj\
+-LC:\Users\afeli\Desktop\Concorsi\AdaCore\EtchingBoard\obj\
+-LC:\Users\afeli\Desktop\Concorsi\AdaCore\Ada_Drivers_Library-master\boards\MicroBit\obj\zfp_lib_Debug\
+-LC:\gnat\2019-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m0\adalib\
+-static
+-static-libgcc
+C:\gnat\2019-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m0\adalib\libgnat.a

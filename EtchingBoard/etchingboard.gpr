@@ -1,0 +1,49 @@
+with "..\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr";
+
+project EtchingBoard is
+
+   type Build_Type is
+      ("Debug", "Production");
+   type Build_Checks_Type is
+      ("Disabled", "Enabled");
+   for Runtime ("ada") use Microbit_Zfp'Runtime ("Ada");
+   for Target use "arm-eabi";
+   for Languages use ("Ada");
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Create_Missing_Dirs use "True";
+   ADL_BUILD_CHECKS : Build_Checks_Type := external ("ADL_BUILD_CHECKS");
+   ADL_BUILD : Build_Type := external ("ADL_BUILD");
+
+   package Compiler renames Microbit_Zfp.Compiler;
+
+   package Linker is
+      for Default_Switches ("ada") use Microbit_Zfp.Linker_Switches & ("-Wl,--print-memory-usage", "-Wl,--gc-sections");
+   end Linker;
+
+   package Ide is
+      for Program_Host use ":1234";
+      for Communication_Protocol use "remote";
+      for Connection_Tool use "pyocd";
+   end Ide;
+
+   case ADL_BUILD_CHECKS is
+
+      when "Disabled" =>
+
+         case ADL_BUILD is
+
+            when "Debug" =>
+               for Main use ("main.adb");
+
+            when "Production" =>
+               for Main use ("main.adb");
+         end case;
+
+      when "Enabled" =>
+         for Main use ("main.adb");
+   end case;
+
+
+end EtchingBoard;
+
